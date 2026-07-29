@@ -190,18 +190,20 @@ class PowerMonitorService : Service() {
 
     private fun takeSample(): SampleData {
         val ts = System.currentTimeMillis()
-        return if (supportsCurrentSensor) {
-            val voltage = batteryManager.getIntProperty(8)  // BATTERY_PROPERTY_VOLTAGE
-            val current = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW)
-            val temp = readBatteryTemperature()
-            val power = (voltage * kotlin.math.abs(current)) / 1000  // mW
+        // Use sticky broadcast (Intent.ACTION_BATTERY_CHANGED) to read battery info,
+        // which does NOT require BATTERY_STATS permission (unlike getIntProperty).
+        val batteryIntent = registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+        val voltage = batteryIntent?.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0) ?: 0
+        val current = batteryIntent?.getIntExtra("current_now", Int.MIN_VALUE) ?: Int.MIN_VALUE
+        val temp = readBatteryTemperature()
+        return if (current != Int.MIN_VALUE && voltage > 0) {
+            val power = (voltage * kotlin.math.abs(current)) / 1000  // mW, voltage in mV, current in mA
             SampleData(ts, voltage, current, power, temp, isEstimated = false)
         } else {
             val cpu = CpuUsageReader.readCpuLoad()
             val brightness = ScreenBrightnessReader.readBrightness(this)
             val screenOn = ScreenBrightnessReader.isScreenOn(this)
             val est = PowerEstimator.estimate(this, cpu, brightness, screenOn)
-            val temp = readBatteryTemperature()
             SampleData(
                 timestamp = ts,
                 voltage = est.voltage,
@@ -228,8 +230,10 @@ class PowerMonitorService : Service() {
     }
 
     private fun detectCurrentSensorSupport(): Boolean {
+        // Try reading via sticky broadcast (no BATTERY_STATS permission needed)
         return try {
-            val current = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW)
+            val batteryIntent = registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
+            val current = batteryIntent?.getIntExtra("current_now", Int.MIN_VALUE) ?: Int.MIN_VALUE
             current != Int.MIN_VALUE
         } catch (_: Throwable) {
             false
