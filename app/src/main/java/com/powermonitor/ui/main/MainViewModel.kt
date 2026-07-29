@@ -18,6 +18,7 @@ import com.powermonitor.service.FloatingWindowService
 import com.powermonitor.service.PowerMonitorService
 import com.powermonitor.util.AppPreferences
 import com.powermonitor.util.DataBus
+import com.powermonitor.R
 import com.powermonitor.util.PermissionHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
