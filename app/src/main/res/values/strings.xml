@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">功率监测</string>
+
+    <!-- 主界面 -->
+    <string name="current_power">实时功率</string>
+    <string name="avg_power_1min">1分钟平均</string>
+    <string name="estimated_battery">预估续航</string>
+    <string name="unit_mw">mW</string>
+    <string name="unit_ma">mA</string>
+    <string name="unit_mv">mV</string>
+    <string name="unit_celsius">℃</string>
+    <string name="unit_mah">mAh</string>
+    <string name="unit_hour">小时</string>
+    <string name="unit_minute">分钟</string>
+
+    <!-- 图表 -->
+    <string name="chart_power_label">功率 (mW)</string>
+    <string name="chart_temp_label">温度 (℃)</string>
+    <string name="chart_history_title">近24小时数据</string>
+    <string name="chart_zoom_hint">双指缩放查看详情</string>
+    <string name="no_data_selected">点击图表数据点查看详情</string>
+    <string name="selected_point_info">时间: %1$s\n功率: %2$d mW\n电流: %3$d mA\n电压: %4$d mV\n温度: %5$.1f ℃</string>
+
+    <!-- 服务与通知 -->
+    <string name="foreground_notification_title">功率监测运行中</string>
+    <string name="foreground_notification_text">实时功率: %1$d mW · 温度: %2$.1f ℃</string>
+    <string name="foreground_notification_channel">实时监测</string>
+    <string name="foreground_notification_channel_desc">功率实时监测前台服务通知</string>
+    <string name="service_action_start">启动监测</string>
+    <string name="service_action_stop">停止监测</string>
+
+    <!-- 权限引导 -->
+    <string name="permission_title">需要权限</string>
+    <string name="permission_battery_optimization">为保证后台监测不被系统杀死，请将本应用加入电池优化白名单。</string>
+    <string name="permission_notification">需要通知权限以显示前台服务通知。</string>
+    <string name="permission_overlay">需要悬浮窗权限以显示全局实时功率球。</string>
+    <string name="permission_lock_app_hint">建议在最近任务中锁定本应用，防止被厂商系统清理。</string>
+    <string name="go_to_settings">前往设置</string>
+    <string name="cancel">取消</string>
+    <string name="got_it">我知道了</string>
+
+    <!-- 悬浮窗 -->
+    <string name="floating_instant">瞬时功率</string>
+    <string name="floating_accumulated">累计耗电</string>
+
+    <!-- 设置 -->
+    <string name="settings_title">设置</string>
+    <string name="settings_sample_interval">采样间隔（前台）</string>
+    <string name="settings_sample_interval_bg">采样间隔（后台）</string>
+    <string name="settings_sample_interval_idle">采样间隔（熄屏）</string>
+    <string name="settings_power_threshold">功率阈值 (mW)</string>
+    <string name="settings_floating_window">启用悬浮窗</string>
+    <string name="settings_boot_auto_start">开机自启</string>
+    <string name="settings_export_csv">导出CSV数据</string>
+    <string name="settings_export_success">导出成功: %s</string>
+    <string name="settings_export_failed">导出失败: %s</string>
+    <string name="settings_battery_optimization">电池优化白名单</string>
+    <string name="settings_notification_permission">通知权限</string>
+    <string name="settings_overlay_permission">悬浮窗权限</string>
+    <string name="settings_clear_data">清空历史数据</string>
+    <string name="settings_about">关于</string>
+    <string name="settings_version">版本 %1$s</string>
+
+    <!-- 电量估算（无电流传感器时） -->
+    <string name="estimation_mode">估算模式</string>
+    <string name="estimation_based_on">基于CPU/GPU负载和屏幕亮度估算</string>
+
+    <!-- 其他 -->
+    <string name="loading">加载中…</string>
+    <string name="error_occurred">发生错误: %s</string>
+    <string name="confirm_clear_data">确定清空所有历史数据？此操作不可撤销。</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+</resources>

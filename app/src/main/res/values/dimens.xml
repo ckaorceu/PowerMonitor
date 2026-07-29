@@ -1,0 +1,36 @@
+<resources>
+    <!-- 默认边距 -->
+    <dimen name="spacing_xs">2dp</dimen>
+    <dimen name="spacing_sm">4dp</dimen>
+    <dimen name="spacing_md">8dp</dimen>
+    <dimen name="spacing_lg">16dp</dimen>
+    <dimen name="spacing_xl">24dp</dimen>
+    <dimen name="spacing_xxl">32dp</dimen>
+
+    <!-- 圆角 -->
+    <dimen name="corner_sm">4dp</dimen>
+    <dimen name="corner_md">8dp</dimen>
+    <dimen name="corner_lg">12dp</dimen>
+    <dimen name="corner_xl">16dp</dimen>
+    <dimen name="corner_full">999dp</dimen>
+
+    <!-- 指标卡片 -->
+    <dimen name="metric_card_height">100dp</dimen>
+    <dimen name="metric_value_text">28sp</dimen>
+    <dimen name="metric_label_text">12sp</dimen>
+    <dimen name="metric_unit_text">14sp</dimen>
+
+    <!-- 图表 -->
+    <dimen name="chart_height">320dp</dimen>
+    <dimen name="chart_thumb_height">120dp</dimen>
+
+    <!-- 悬浮窗 -->
+    <dimen name="floating_size">56dp</dimen>
+    <dimen name="floating_text">12sp</dimen>
+
+    <!-- Toolbar -->
+    <dimen name="toolbar_height">56dp</dimen>
+
+    <!-- 选中详情信息 -->
+    <dimen name="info_text">13sp</dimen>
+</resources>

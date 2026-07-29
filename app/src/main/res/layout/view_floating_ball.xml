@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/floatingText"
+        android:layout_width="@dimen/floating_size"
+        android:layout_height="@dimen/floating_size"
+        android:background="@drawable/bg_floating"
+        android:gravity="center"
+        android:padding="4dp"
+        android:textColor="@color/floating_text"
+        android:textSize="@dimen/floating_text"
+        android:lineSpacingExtra="-2dp"
+        android:textStyle="bold"
+        tools:text="瞬时\n1234mW"
+        xmlns:tools="http://schemas.android.com/tools" />
+</FrameLayout>
