@@ -107,7 +107,7 @@ class ChartManager(
 
         // 左轴 Y：功率 mW
         realtimeChart.axisLeft.apply {
-            position = YAxis.YAxisLabelPosition.OUTSIDE_CHART
+            setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART)
             textColor = c.getColor(R.color.chart_power_line)
             textSize = 11f
             setDrawGridLines(true)
@@ -232,9 +232,9 @@ class ChartManager(
             setCircleColor(lineColor)
             setDrawValues(false)
             setDrawFilled(true)
-            fillColor = fillColor
+            setFillColor(fillColor)
             mode = LineDataSet.Mode.HORIZONTAL_BEZIER
-            highLightColor = context.getColor(R.color.color_accent)
+            setHighLightColor(context.getColor(R.color.color_accent))
             isHighlightEnabled = true
         }
     }

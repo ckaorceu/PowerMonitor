@@ -219,11 +219,11 @@ class MainViewModel(
     private fun updateBatteryEstimate(latest: SampleData, window: List<SampleData>) {
         val ctx = getApplication<Application>()
         val batteryRemainingMah = runCatching { getRemainingBatteryMah(ctx) }.getOrDefault(0)
-        val avgCurrent = if (window.isEmpty()) kotlin.math.abs(latest.current)
-        else window.sumOf { kotlin.math.abs(it.current).toLong() } / window.size
-        val hours = if (avgCurrent <= 0) 0 else (batteryRemainingMah / avgCurrent).toInt()
-        val minutes = if (avgCurrent <= 0) 0
-        else ((batteryRemainingMah % avgCurrent) * 60 / avgCurrent).toInt()
+        val avgCurrent: Double = if (window.isEmpty()) kotlin.math.abs(latest.current).toDouble()
+        else window.sumOf { kotlin.math.abs(it.current).toDouble() } / window.size
+        val hours = if (avgCurrent <= 0.0) 0 else (batteryRemainingMah.toDouble() / avgCurrent).toInt()
+        val minutes = if (avgCurrent <= 0.0) 0
+        else ((batteryRemainingMah.toDouble() % avgCurrent) * 60.0 / avgCurrent).toInt()
         _estimatedBattery.postValue(
             EstimatedBattery(hours, minutes, batteryRemainingMah, avgCurrent.toInt())
         )

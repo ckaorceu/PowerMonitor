@@ -66,7 +66,7 @@ class FloatingWindowService : Service(), LifecycleOwner {
         removeFloatingView()
     }
 
-    override fun getLifecycle(): Lifecycle = lifecycleRegistry
+    override val lifecycle: Lifecycle get() = lifecycleRegistry
 
     @SuppressLint("ClickableViewAccessibility", "InflateParams")
     private fun addFloatingView() {

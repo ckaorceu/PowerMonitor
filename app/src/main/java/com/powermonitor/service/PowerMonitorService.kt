@@ -191,7 +191,7 @@ class PowerMonitorService : Service() {
     private fun takeSample(): SampleData {
         val ts = System.currentTimeMillis()
         return if (supportsCurrentSensor) {
-            val voltage = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_VOLTAGE)
+            val voltage = batteryManager.getIntProperty(8)  // BATTERY_PROPERTY_VOLTAGE
             val current = batteryManager.getIntProperty(BatteryManager.BATTERY_PROPERTY_CURRENT_NOW)
             val temp = readBatteryTemperature()
             val power = (voltage * kotlin.math.abs(current)) / 1000  // mW
